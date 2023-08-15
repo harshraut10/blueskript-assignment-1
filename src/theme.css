@@ -1,0 +1,62 @@
+
+
+#light {
+  background-color: white;
+}
+
+
+
+#dark{
+  background-color: black;
+  /* height: auto; */
+}
+
+
+
+  #light .container{
+    background-color:azure;
+  }
+
+  #dark .container{
+    background-color:darkgray;
+    
+  }
+
+
+
+  #dark .display_container{
+    background-color:midnightblue;
+  }
+
+  #light .display_container{
+    background-color:beige;
+  }
+
+
+
+ 
+
+  #light .label{
+    color: black;
+  }
+
+  #dark .label{
+    color: white;
+  }
+
+
+ 
+
+  
+
+  /* for text */
+  #light .text{
+    color: black;
+  }
+
+  #dark .text{
+    color: white;
+  }
+
+
+
