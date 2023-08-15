@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../theme.css';
-import './NavBar.css'
 import { useState } from 'react';
+import './NavBar.css'
 const NavBar = (props) => {
   const [clicked1,setClicked1]=useState(true)
   const [clicked2,setClicked2]=useState(false)
@@ -11,7 +11,7 @@ const NavBar = (props) => {
       setClicked1(true);
       setClicked2(false)
       
-    }}>Active Tasks</button>
+    }}>Current Tasks</button>
       <button className= {`nav-btn ${clicked2 ? 'clicked' : ''}`} onClick={()=>{props.status('show_completed_tasks')
     setClicked1(false);
     setClicked2(true)

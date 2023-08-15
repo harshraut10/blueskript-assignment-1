@@ -1,4 +1,4 @@
-import React from 'react'
+
 import '../../theme.css';
 import './DisplayTasks.css'
 const DisplayTasks = (props) => {
@@ -9,11 +9,22 @@ const DisplayTasks = (props) => {
   const completeTaskHandler=(id)=>{
       props.taskComplete(id)
   }
+  let data
+  if(props.tasks)
+  {
+     data=props.tasks.filter( tsk => tsk.status === 'active')
+  console.log('retrived',data)
 
+  }
+  else{
+    data=[]
+  }
+  
   return (
     <div>
       {
-        props.task.map(tsk=>(
+        
+        data.map(tsk=>(
             <div className='text display_container'>
             <div key={tsk.id}>
             <h3>{tsk.name}</h3>
