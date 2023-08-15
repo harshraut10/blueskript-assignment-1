@@ -6,6 +6,7 @@ import DisplayTasks from '../DisplayTasks/DisplayTasks';
 import NavBar from '../NavBar/NavBar';
 import DisplayCompletedTasks from '../DisplayCompletedTasks/DisplayCompletedTasks';
 
+
 const Home = () => {
 
   
@@ -174,12 +175,12 @@ const Home = () => {
 
 
   return (
-    <div>
+    <div className='home'>
       
       <Form addTask={addTaskHandler}/>
       <NavBar status={NavStatus} />
 
-    {content}
+       {content}
       
      
     </div>

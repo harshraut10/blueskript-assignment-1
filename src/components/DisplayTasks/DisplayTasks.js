@@ -21,7 +21,7 @@ const DisplayTasks = (props) => {
   }
   
   return (
-    <div>
+    <div >
       {
         
         data.map(tsk=>(
