@@ -3,7 +3,7 @@ import React from 'react'
 const AllTasks = (props) => {
   return (
     <div>
-        <button className='button-del' onClick={()=>{props.delete()}}>Clear ALL Tasks</button>
+        {props.tasks.length > 0 ? <button className='button-del' onClick={()=>{props.delete()}}>Clear ALL Tasks</button> :null}
       { 
         props.tasks.map((tsk)=>(
             <div className='text display_container'>

@@ -24,7 +24,7 @@ const DisplayCompletedTasks = (props) => {
   return (
     <div>
       <div>
-        <button className='button-del' onClick={removeHandler}>Remove All Tasks</button>
+       { data.length > 0 ? <button className='button-del' onClick={removeHandler}>Remove All Tasks</button> : null}
       </div>
       { 
         data.map((tsk)=>(
