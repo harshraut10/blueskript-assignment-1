@@ -5,7 +5,7 @@ import { useState,useEffect } from 'react';
 import DisplayTasks from '../DisplayTasks/DisplayTasks';
 import NavBar from '../NavBar/NavBar';
 import DisplayCompletedTasks from '../DisplayCompletedTasks/DisplayCompletedTasks';
-
+import AllTasks from '../AllTasks/AllTasks';
 
 const Home = () => {
 
@@ -79,6 +79,8 @@ const Home = () => {
   
   const [curTasks,setCurTasks]=useState(true);
   const [comTasks,setComTasks]=useState(false);
+  const [historyTask,setHistoryTask]=useState(false);
+
 
   const[dep,setDep]=useState()
 
@@ -148,10 +150,17 @@ const Home = () => {
     {
         setComTasks(false);
         setCurTasks(true)
+        setHistoryTask(false)
     }
     else if (str==='show_completed_tasks'){
       setComTasks(true);
       setCurTasks(false)
+      setHistoryTask(false)
+    }
+    else{
+      setComTasks(false);
+      setCurTasks(false)
+      setHistoryTask(true)
     }
 
     ///remove
@@ -169,8 +178,11 @@ const Home = () => {
   if(curTasks){
     content=<DisplayTasks taskComplete={completedTasksFunc} deleteTask={removeTask} tasks={allTasks} />
   }
-  else{
+  else if(comTasks){
     content=<DisplayCompletedTasks tasks={allTasks} Crem={removeCompletedTasks}/>
+  }
+  else{
+    content=<AllTasks tasks={allTasks}/>
   }
 
 
