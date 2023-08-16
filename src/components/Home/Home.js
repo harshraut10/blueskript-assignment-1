@@ -173,7 +173,7 @@ const Home = () => {
     content=<DisplayCompletedTasks tasks={allTasks} Crem={removeCompletedTasks}/>
   }
 
-dwdadwad
+
 
   return (
     <div className='home'>
