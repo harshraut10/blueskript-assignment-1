@@ -9,7 +9,6 @@ import AllTasks from '../AllTasks/AllTasks';
 
 const Home = () => {
 
-  
 
  
   //getting items from local storage
