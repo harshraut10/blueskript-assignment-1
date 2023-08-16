@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './AllTasks.css'
 const AllTasks = (props) => {
   return (
     <div>

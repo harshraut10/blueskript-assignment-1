@@ -9,6 +9,8 @@ const DisplayTasks = (props) => {
   const completeTaskHandler=(id)=>{
       props.taskComplete(id)
   }
+
+  //check for null error
   let data
   if(props.tasks)
   {

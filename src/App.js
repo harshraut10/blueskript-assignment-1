@@ -6,6 +6,7 @@ import './App.css';
 export const ThemeContext=createContext(null);
 function App() {
   const [theme,setTheme]=useState()
+
  // local storage is used to persist the theme value 
   useEffect(()=>{
     
@@ -19,7 +20,7 @@ function App() {
   },[])
 
   
- 
+ //used to change the theme value
   const toggleTheme=()=>{
     if(theme==="light"){
       localStorage.setItem('theme','dark')
@@ -29,7 +30,6 @@ function App() {
       localStorage.setItem('theme','light')
       setTheme(localStorage.getItem('theme'))
     }
-    //setTheme((curr)=>(curr==="light"?"dark":"light"))
   }
 
 

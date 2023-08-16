@@ -3,9 +3,11 @@ import '../../theme.css';
 import { useState } from 'react';
 import './NavBar.css'
 const NavBar = (props) => {
+  //States used to handle the conditions of all 3 buttons
   const [clicked1,setClicked1]=useState(true)
   const [clicked2,setClicked2]=useState(false)
   const [clicked3,setClicked3]=useState(false)
+
   return (
     <div className='container'>
       <button className= {`nav-btn ${clicked1 ? 'clicked' : ''}`} onClick={()=>{props.status('show_current_tasks')

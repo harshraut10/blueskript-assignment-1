@@ -1,26 +1,28 @@
 import React from 'react'
-
+import './DisplayCompletedTasks.css'
+import '../../theme.css';
 const DisplayCompletedTasks = (props) => {
 
+  //function invokes the parent component
   const removeHandler=()=>{
     props.Crem()
   }
 
+  //function forwards the id to the parent component
   const deleteHandler=(id)=>{
     props.CremSingle(id)
   }
 
   let data
+  //check for null error
   if(props.tasks)
   {
      data=props.tasks.filter( tsk => tsk.status === 'complete' && tsk.flag===true)
-     //console.log(data)
-  //console.log('retrived',data)
-
   }
   else{
     data=[]
   } 
+
   return (
     <div>
       <div>

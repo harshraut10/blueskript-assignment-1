@@ -5,20 +5,22 @@ const Form = (props) => {
    const [taskName, setTaskName]=useState('');
    const [taskDate, setTaskDate]=useState('');
 
+   //sets taskname when changed
    const nameHandler=(event)=>{
     setTaskName(event.target.value)
    }
 
+    //sets date when changed
    const dateHandler=(event)=>{
     setTaskDate(event.target.value)
    }
-
+    
    const submitHandler=(event)=>{
     event.preventDefault();
 
     //constructing the task
     const ob = {
-
+        //assigning random number as ID 
         id: Math.floor(Math.random()*1000),
         name:taskName,
         date:taskDate,
@@ -27,6 +29,8 @@ const Form = (props) => {
     }
 
     props.addTask(ob);
+
+    //clearing the form input
     setTaskName('')
     setTaskDate('')
 

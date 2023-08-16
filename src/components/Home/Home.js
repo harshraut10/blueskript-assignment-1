@@ -11,40 +11,12 @@ const Home = () => {
 
   
 
-  // const initial_tasks=[
-  //   {
-  //     id:1,
-  //     name:"Go shopping",
-  //     date:"2/7/23",
-  //     status:'active'
-  //   },
-  //   {
-  //     id:2,
-  //     name:"Do homework",
-  //     date:"5/7/23",
-  //     status:'complete'
-  //   }
-  // ]
-
-  // useEffect(()=>{
-  //    localStorage.setItem('tasks',JSON.stringify([]))
-
-  // },[])
-  
-
- // localStorage.setItem('tasks',JSON.stringify(initial_tasks))
+ 
   //getting items from local storage
   const getLocalStorageTasks=()=>{
     
      const data=JSON.parse(localStorage.getItem('HarshTasks'))||[]
-      // return (data.filter(item=>item.status === 'active'))
-      console.log(data)
-      if (data === null){
-        return []
-      }
-      else{
         return data
-      }
     }
     
 
@@ -52,6 +24,7 @@ const Home = () => {
   //to keep record of all the tasks
   const [allTasks,setAllTasks]=useState(getLocalStorageTasks())
   
+  //setting flags to toggle between active, complete and all tasks
   const [curTasks,setCurTasks]=useState(true);
   const [comTasks,setComTasks]=useState(false);
   const [historyTask,setHistoryTask]=useState(false);
@@ -62,30 +35,28 @@ const Home = () => {
     setAllTasks(stored)
  },[])
   
-
+ //runs to update the local storage only when allTasks array changes
   useEffect(()=>{
-    localStorage.removeItem('HarshTasks')
     localStorage.setItem('HarshTasks',JSON.stringify(allTasks));
 
   },[allTasks])
 
- 
+ //adds a new task
   const addTaskHandler=(ob)=>{ 
 
       setAllTasks( prev=>{
         return [...prev,ob]
       })
 
- 
-
-
   }
 
+  //removes task based on id 
   const removeTask=(id)=>{
     let newTask=allTasks.filter(task=> task.id!==id)
     setAllTasks(newTask)
   }
 
+  //sets the status property of a task to 'complete' when invoked
   const completedTasksFunc=(id)=>{
     let fetch=allTasks.find(task=>task.id===id)
     let updTask={
@@ -93,17 +64,18 @@ const Home = () => {
       status:'complete',
       flag:true
     }
- 
-    let newTask=allTasks.filter(task=> task.id!==id)
+    
+    //retrieves all the tasks except the current id task
+    let newTask=allTasks.filter(task => task.id!==id)
     setAllTasks(newTask)
 
+    //adds the updated complete task
     setAllTasks(prev=>{
       return [...prev,updTask]
     })
-
-
   }
 
+  //gets inputs from the navBar component to set the flags
   const NavStatus=(str)=>{
     if( str === 'show_current_tasks')
     {
@@ -121,9 +93,6 @@ const Home = () => {
       setCurTasks(false)
       setHistoryTask(true)
     }
-
-    ///remove
-    console.log(comTasks)
   }
 
   //function to remove completed tasks
@@ -142,12 +111,17 @@ const Home = () => {
     setAllTasks(updTask)
   }
 
+  //removes all the tasks from local storage
   const clearLocalStorage=()=>{
+
+    if(window.confirm('Are you sure you want to delete all tasks?'))
+     { 
       localStorage.removeItem('HarshTasks')
       setAllTasks(getLocalStorageTasks())
+    }
   }
 
-
+  //Displays the contents from the selected navBar options
   let content
   if(curTasks){
     content=<DisplayTasks taskComplete={completedTasksFunc} deleteTask={removeTask} tasks={allTasks} />
@@ -168,8 +142,7 @@ const Home = () => {
       <NavBar status={NavStatus} />
 
        {content}
-      
-     
+       
     </div>
   )
 }
