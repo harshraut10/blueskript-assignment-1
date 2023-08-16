@@ -1,5 +1,5 @@
-import React from 'react'
-import './DisplayCompletedTasks.css'
+import React from 'react';
+import './DisplayCompletedTasks.css';
 import '../../theme.css';
 const DisplayCompletedTasks = (props) => {
 
