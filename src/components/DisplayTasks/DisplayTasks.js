@@ -1,6 +1,6 @@
 
 import '../../theme.css';
-import './DisplayTasks.css'
+import './DisplayTasks.css';
 const DisplayTasks = (props) => {
   const deleteHandler=(id)=>{
     props.deleteTask(id)
