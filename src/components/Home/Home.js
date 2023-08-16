@@ -118,7 +118,8 @@ const Home = () => {
     let fetch=allTasks.find(task=>task.id===id)
     let updTask={
       ...fetch,
-      status:'complete'
+      status:'complete',
+      flag:true
     }
     // setCompletedTasks(prev=>{
     //   return [...prev,updTask]
@@ -160,7 +161,7 @@ const Home = () => {
   //function to remove completed tasks
   const removeCompletedTasks=()=>{
     const updTask = allTasks.map(task=>
-      task.status==='complete' ? {...task,status:"out"}:task
+      task.status==='complete' ? {...task,flag:false}:task
       );
       setAllTasks(updTask)
   }

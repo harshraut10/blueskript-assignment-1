@@ -22,7 +22,8 @@ const Form = (props) => {
         id: Math.floor(Math.random()*1000),
         name:taskName,
         date:taskDate,
-        status:'active'
+        status:'active',
+        flag:false
     }
 
     props.addTask(ob);

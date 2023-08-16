@@ -9,7 +9,7 @@ const DisplayCompletedTasks = (props) => {
   let data
   if(props.tasks)
   {
-     data=props.tasks.filter( tsk => tsk.status === 'complete')
+     data=props.tasks.filter( tsk => tsk.status === 'complete' && tsk.flag===true)
      console.log(data)
   //console.log('retrived',data)
 
