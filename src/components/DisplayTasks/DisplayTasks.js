@@ -29,7 +29,6 @@ const DisplayTasks = (props) => {
             <div key={tsk.id}>
             <h3>{tsk.name}</h3>
             <h4>{tsk.date}</h4>
-            <h4>{tsk.id}</h4>
             <button className='button-del' onClick={()=>{deleteHandler(tsk.id)}}>Delete</button>
             <button className='complete' onClick={()=>completeTaskHandler(tsk.id)}>Complete</button>
             </div>

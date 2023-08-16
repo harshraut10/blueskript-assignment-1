@@ -47,18 +47,6 @@ const Home = () => {
       }
     }
     
-   
-  const getLocalCompleteTasks=()=>{
-    const data=JSON.parse(localStorage.getItem('tasks'))||[]
-      // return (data.filter(item=>item.status === 'complete'))
-      if (data===null){
-        return []
-      }
-      else{
-        return data
-      }
-   
-  }
 
   const getLocalAllTasks=()=>{
     const items= JSON.parse (localStorage.getItem('tasks'))||[]
@@ -66,14 +54,7 @@ const Home = () => {
    return(items)
   }
 
-  const [tasks,setTasks]=useState([])
-
-
  
-
-  //localStorage.setItem('tasks',JSON.stringify(tasks))
-
-  const [completedTasks, setCompletedTasks]=useState([]);
   //to keep record of all the tasks
   const [allTasks,setAllTasks]=useState(getLocalStorageTasks())
   
@@ -81,8 +62,6 @@ const Home = () => {
   const [comTasks,setComTasks]=useState(false);
   const [historyTask,setHistoryTask]=useState(false);
 
-
-  const[dep,setDep]=useState()
 
   useEffect(()=>{
    const stored=JSON.parse(localStorage.getItem('tasks') )||[];
@@ -98,9 +77,6 @@ const Home = () => {
 
  
   const addTaskHandler=(ob)=>{ 
-      // setTasks( prev=>{
-      //   return [...prev,ob]
-      // })
 
       setAllTasks( prev=>{
         return [...prev,ob]
@@ -123,10 +99,7 @@ const Home = () => {
       status:'complete',
       flag:true
     }
-    // setCompletedTasks(prev=>{
-    //   return [...prev,updTask]
-
-    // })
+ 
     let newTask=allTasks.filter(task=> task.id!==id)
     setAllTasks(newTask)
 
@@ -134,14 +107,6 @@ const Home = () => {
       return [...prev,updTask]
     })
 
-
-
-    
-
-    //deletes the task from the task array
-    
-
-    setDep(id)
 
   }
 
@@ -157,7 +122,7 @@ const Home = () => {
       setCurTasks(false)
       setHistoryTask(false)
     }
-    else{
+    else {
       setComTasks(false);
       setCurTasks(false)
       setHistoryTask(true)
@@ -196,7 +161,7 @@ const Home = () => {
   else if(comTasks){
     content=<DisplayCompletedTasks CremSingle={removeCompletedTask} tasks={allTasks} Crem={removeCompletedTasks}/>
   }
-  else{
+  else if(historyTask){
     content=<AllTasks delete={clearLocalStorage} tasks={allTasks}/>
   }
 

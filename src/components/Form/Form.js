@@ -39,8 +39,8 @@ const Form = (props) => {
         <input type='text' onChange={nameHandler}/><br></br>
 
         <label >Enter Date</label><br></br>
-        <input type='text' onChange={dateHandler}/><br></br>
-
+        <input type="date" id="date" name="date" onChange={dateHandler}></input><br></br>
+        
         <button className='submit' type='submit'>Submit</button>
       </form>
     </div>
