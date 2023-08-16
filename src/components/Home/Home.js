@@ -61,7 +61,7 @@ const Home = () => {
   }
 
   const getLocalAllTasks=()=>{
-    const items= JSON.parse (localStorage.getItem('tasks'))
+    const items= JSON.parse (localStorage.getItem('tasks'))||[]
 
    return(items)
   }
@@ -174,15 +174,30 @@ const Home = () => {
       );
       setAllTasks(updTask)
   }
+
+// function to remove a single completed task
+  const removeCompletedTask=(id)=>{
+    const updTask = allTasks.map(task=>
+      task.id===id ? {...task,flag:false}:task
+      );
+    setAllTasks(updTask)
+  }
+
+  const clearLocalStorage=()=>{
+    localStorage.removeItem('tasks')
+    setAllTasks(getLocalAllTasks())
+  }
+
+
   let content
   if(curTasks){
     content=<DisplayTasks taskComplete={completedTasksFunc} deleteTask={removeTask} tasks={allTasks} />
   }
   else if(comTasks){
-    content=<DisplayCompletedTasks tasks={allTasks} Crem={removeCompletedTasks}/>
+    content=<DisplayCompletedTasks CremSingle={removeCompletedTask} tasks={allTasks} Crem={removeCompletedTasks}/>
   }
   else{
-    content=<AllTasks tasks={allTasks}/>
+    content=<AllTasks delete={clearLocalStorage} tasks={allTasks}/>
   }
 
 

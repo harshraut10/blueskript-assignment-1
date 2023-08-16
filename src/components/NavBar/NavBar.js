@@ -13,7 +13,7 @@ const NavBar = (props) => {
       setClicked2(false)
       setClicked3(false)
       
-    }}>Current Tasks</button>
+    }}>Active Tasks</button>
 
       <button className= {`nav-btn ${clicked2 ? 'clicked' : ''}`} onClick={()=>{props.status('show_completed_tasks')
     setClicked1(false);

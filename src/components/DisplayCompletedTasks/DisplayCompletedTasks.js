@@ -6,21 +6,25 @@ const DisplayCompletedTasks = (props) => {
     props.Crem()
   }
 
+  const deleteHandler=(id)=>{
+    props.CremSingle(id)
+  }
+
   let data
   if(props.tasks)
   {
      data=props.tasks.filter( tsk => tsk.status === 'complete' && tsk.flag===true)
-     console.log(data)
+     //console.log(data)
   //console.log('retrived',data)
 
   }
   else{
     data=[]
-  }
+  } 
   return (
     <div>
       <div>
-        <button onClick={removeHandler}>Remove All Tasks</button>
+        <button className='button-del' onClick={removeHandler}>Remove All Tasks</button>
       </div>
       { 
         data.map((tsk)=>(
@@ -29,6 +33,7 @@ const DisplayCompletedTasks = (props) => {
             <h3>{tsk.name}</h3>
             <h4>{tsk.date}</h4>
             <h4>{tsk.id}</h4>
+            <button className='button-del' onClick={()=>{deleteHandler(tsk.id)}}>Delete</button>
             </div>
             </div>
         ))
