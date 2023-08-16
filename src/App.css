@@ -2,8 +2,6 @@
   min-height:100vh;
   width: 100vw;
   height: auto;
-  /* height:auto; */
-  
   display:flex;
   justify-content:first baseline;
   align-items: center;
@@ -11,14 +9,3 @@
   top:50px;
 }
 
- #dark .backdrop{
-  background-color: black;
-  height: auto;
-}
-
-#light .backdrop{
-  background-color: white;
-  height: auto;
-}
-
- 

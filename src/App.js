@@ -36,14 +36,13 @@ function App() {
 
   return (
     <ThemeContext.Provider value={{theme,toggleTheme}} >
-      <div className="backdrop">
+      
     <div className="app" id={theme}>
     <b className="label">Toggle Theme to {theme==='light'?'dark':'light'} mode</b>
       <ReactSwitch className="switch" onChange={toggleTheme} checked={theme==='dark'}/>
       <h1 className="text">TO-DO APP</h1>
       <Home/>
       
-    </div>
     </div>
     </ThemeContext.Provider>
   );

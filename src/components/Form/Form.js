@@ -27,6 +27,8 @@ const Form = (props) => {
     }
 
     props.addTask(ob);
+    setTaskName('')
+    setTaskDate('')
 
    }
 
@@ -36,10 +38,10 @@ const Form = (props) => {
     <div className='form'>
       <form onSubmit={submitHandler}>
         <label >Enter Task</label><br></br>
-        <input type='text' onChange={nameHandler}/><br></br>
+        <input type='text' onChange={nameHandler} value={taskName} required/><br></br>
 
         <label >Enter Date</label><br></br>
-        <input type="date" id="date" name="date" onChange={dateHandler}></input><br></br>
+        <input type="date" id="date" name="date" onChange={dateHandler} value={taskDate} required></input><br></br>
         
         <button className='submit' type='submit'>Submit</button>
       </form>

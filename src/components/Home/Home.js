@@ -36,7 +36,7 @@ const Home = () => {
   //getting items from local storage
   const getLocalStorageTasks=()=>{
     
-     const data=JSON.parse(localStorage.getItem('tasks'))
+     const data=JSON.parse(localStorage.getItem('HarshTasks'))||[]
       // return (data.filter(item=>item.status === 'active'))
       console.log(data)
       if (data === null){
@@ -48,12 +48,6 @@ const Home = () => {
     }
     
 
-  const getLocalAllTasks=()=>{
-    const items= JSON.parse (localStorage.getItem('tasks'))||[]
-
-   return(items)
-  }
-
  
   //to keep record of all the tasks
   const [allTasks,setAllTasks]=useState(getLocalStorageTasks())
@@ -64,14 +58,14 @@ const Home = () => {
 
 
   useEffect(()=>{
-   const stored=JSON.parse(localStorage.getItem('tasks') )||[];
+   const stored=JSON.parse(localStorage.getItem('HarshTasks') )||[];
     setAllTasks(stored)
  },[])
   
 
   useEffect(()=>{
-    localStorage.removeItem('tasks')
-    localStorage.setItem('tasks',JSON.stringify(allTasks));
+    localStorage.removeItem('HarshTasks')
+    localStorage.setItem('HarshTasks',JSON.stringify(allTasks));
 
   },[allTasks])
 
@@ -149,8 +143,8 @@ const Home = () => {
   }
 
   const clearLocalStorage=()=>{
-    localStorage.removeItem('tasks')
-    setAllTasks(getLocalAllTasks())
+      localStorage.removeItem('HarshTasks')
+      setAllTasks(getLocalStorageTasks())
   }
 
 
