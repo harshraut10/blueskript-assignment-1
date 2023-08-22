@@ -27,7 +27,7 @@ const DisplayTasks = (props) => {
       {
         
         data.map(tsk=>(
-            <div className='text display_container'>
+            <div draggable className='text display_container'>
             <div key={tsk.id}>
             <h3>{tsk.name}</h3>
             <h4>{tsk.date}</h4>

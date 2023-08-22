@@ -7,5 +7,6 @@
   align-items: center;
   flex-direction: column;
   top:50px;
+  transition: all 0.2s;
 }
 
