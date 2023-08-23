@@ -138,7 +138,7 @@ const Home = () => {
     <div className='home'>
       
       <Form addTask={addTaskHandler}/>
-      <NavBar status={NavStatus} />
+      <NavBar tasks={allTasks} status={NavStatus} />
 
        {content}
        

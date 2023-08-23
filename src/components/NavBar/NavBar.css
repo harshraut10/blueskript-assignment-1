@@ -10,6 +10,13 @@
     transition: all 0.2s;
     
   }
+.span{
+  background-color: #fff;
+  border-radius: 5px;
+  color: black;
+  width: auto;
+  padding: 5px;
+}
 
   .nav-btn{
 
